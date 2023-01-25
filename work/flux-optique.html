@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<head>
+    <title>Théo Guénézan | Portfolio</title>
+    <meta name = "viewport" content = "width=device-width,initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href = "../css/global.css">
+    <link rel="stylesheet" href = "../css/nav.css">
+</head>
+
+<body>
+ <!-- NAV -->
+ <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+  <div class="container flex-lg-column">
+    <a class="navbar-brand mb-lg-4 mx-lg-auto" href="#">
+      <span class = "h3 fw-bold d-block d-lg-none">Théo Guénézan</span>
+      <img src = "../img/pp.png" alt = "" class = "rounded-circle d-none d-lg-block mx-lg-auto"/>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto flex-lg-column text-lg-block text-lg-center">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="../index.html#Acceuil">Acceuil</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="../index.html#work">Travaux</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="../index.html#about">Contacts</a>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- //NAV -->
+<div id = "content-wrapper">
+  <section id = "calcul_gradients" class = "full-height px-lg-5">
+      <div class ="row">
+        <div class = "col-lg-8 ">
+          <h1 data-aos="fade-down" data-aos-delay = "100">Mes Travaux</h1>
+          <p class = "lead mt-2 mb-4" data-aos="fade-down" data-aos-delay = "100">desc</p>
+          <pre data-aos="fade-right" data-aos-delay = "300">
+          <code class=" prettyprint code">
+            def Calculer_gradients(a,b):
+              ##Masques de convolution pour approximer les gradients:
+          
+              # Horizontal
+              mask_x=np.array([[-1,1],[-1,1]])
+              
+              # Vertical
+              mask_y=np.array([[-1,-1],[1,1]])
+              
+              # Temporels
+              mask_t1=np.array([[-1,-1],[-1,-1]])
+              mask_t2=np.array([[1,1],[1,1]])
+                  
+              
+              ## Convolution des gradiants a l'aide de convolve2d
+              Ix = signal.convolve2d(a,mask_x,mode='same') + signal.convolve2d(b,mask_x,mode='same')
+              
+              Iy = signal.convolve2d(a,mask_y,mode='same')+signal.convolve2d(b,mask_y,mode='same')
+              
+              It = signal.convolve2d(a,mask_t1,mode='same')+signal.convolve2d(b,mask_t2,mode='same')
+              
+              return Ix,Iy,It
+          </code>
+        </pre>
+        </div>
+      </div>
+  </section>
+  <section id = "calcul_gradients" class = "full-height px-lg-5"> 
+    <div class ="row">
+      <div class = "col-lg-8 ">
+        <h1 data-aos="fade-down" data-aos-delay = "100">Mes Travaux</h1>
+        <p class = "lead mt-2 mb-4" data-aos="fade-down" data-aos-delay = "100">desc</p>
+        <pre data-aos="fade-right" data-aos-delay = "300">
+        <code class=" prettyprint code" >
+          def Approximer_V(img,Ix,Iy,It,alpha,delta):
+            mask_lap=np.array([[1/12,1/6,1/12],[1/6,0,1/6],[1/12,1/6,1/12]])
+
+            
+            ## Initialisation des vecteurs vitesse V(u,v)
+            u=np.zeros(img.shape)
+            v=np.zeros(img.shape)
+            
+            #compteur d'itérations
+            i=0
+            while True:
+                i+=1
+                # moyenne des u
+                u_moy = signal.convolve2d(u,mask_lap,mode='same')
+                # moyenne des v
+                v_moy = signal.convolve2d(v,mask_lap,mode='same')
+                
+                #u précèdent pour le calcul de différence
+                u_1 = u
+                # p = Ix(Ix * u_moy + Iy * v_moy + It)
+                p1 = np.multiply(Ix,u_moy)
+                p2 = np.multiply(Iy,v_moy)    
+                p = p1+p2+It    
+                
+                # d = 4 * a + Ix^2 + It^2
+                d =  (4 * alpha + Ix**2 + Iy**2)
+                
+                # u = u_moy - Ix * p/d
+                u =  u_moy - np.multiply(Ix,(p/d))
+                
+                # v = v_moy - Iy * p/d
+                v =  v_moy - np.multiply(Iy,(p/d))
+                
+                
+                #diffèrence entre u-1 et u
+                difference = np.linalg.norm(u-u_1,2)
+
+                # si diff &lt précision ou itération &gt 300 , On s'arrête
+                if difference &lt delta or i &gt 300:
+                    break
+            return u,v
+
+        </code>
+      </pre>
+      </div>
+    </div>
+  </section>
+  <section id = "calcul_gradients" class = "full-height px-lg-5">
+    <div class ="row">
+      <div class = "col-lg-8 ">
+        <h1 data-aos="fade-down" data-aos-delay = "100">Mes Travaux</h1>
+        <p class = "lead mt-2 mb-4" data-aos="fade-down" data-aos-delay = "100">desc</p>
+        <pre data-aos="fade-right" data-aos-delay = "300">
+        <code class=" prettyprint code" >
+          def Afficher_fleches(u,v,beforeImg): 
+            # taille des vecteurs vitesse
+            scale = 2**9
+            
+            ax = plt.figure().gca()
+            ax.imshow(beforeImg, cmap = 'gray')
+
+
+            for i in range(0, u.shape[0], 8):
+                for j in range(0, u.shape[1],8):
+                    dy = v[i,j] * scale
+                    dx = u[i,j] * scale
+                    magnitude = (dx**2 + dy**2)**0.5
+                    #draw only significant changes
+                    if magnitude > 0.005 and (j-dx)>0 and (i-dy)>0:
+                        ax.arrow(j,i, dx, dy, color = 'white')
+                        
+            plt.axis('off')
+            plt.draw()
+            plt.show()
+
+        </code>
+      </pre>
+      </div>
+    </div>
+  </section>
+  <section id = "calcul_gradients" class = "full-height px-lg-5">
+    <div class ="row">
+      <div class = "col-lg-8 " >
+        <h1  data-aos="fade-down" data-aos-delay = "100">Mes Travaux</h1>
+        <p class = "lead mt-2 mb-4" data-aos="fade-down" data-aos-delay = "100">desc</p>
+        <pre data-aos="fade-right" data-aos-delay = "300">
+        <code class=" prettyprint code" >
+          def HornEtSchunck(a,b,base,aff = False):  
+            
+            # Calcul des gradients
+            Ix,Iy,It = Calculer_gradients(a, b)
+            
+            # On cherche une approximation des vecteurs vitesse V(u,v) itérativement
+            u,v = Approximer_V(a, Ix, Iy, It, 15**2, 10**-3)
+            # On affiche les vecteurs vitesses sur l'image sans flou
+            if (aff):
+                Afficher_fleches(u,v,base)
+                
+            return u,v
+
+        </code>
+      </pre>
+      </div>
+    </div>
+  </section>
+</div>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+<script>
+  AOS.init();
+  var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+  var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+    return new bootstrap.Tooltip(tooltipTriggerEl)
+  })
+</script>
+</body>
