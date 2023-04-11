@@ -114,6 +114,9 @@ img{
 }
 
 .icon{
+    position:absolute;
+    right:20px;
+    bottom:20px;
     width:35px;
     background:none;
     border:none;
