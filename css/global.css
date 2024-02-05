@@ -111,8 +111,16 @@ img {
     transition: all 0.5s;
 }
 
+<<<<<<< HEAD
 .shadow-effect:hover {
     box-shadow: -3px 3px 0 0 var(--couleur-accent);
+=======
+.shadow-effect:hover{
+    box-shadow:-3px 3px 0 0 var(--color-brand)
+}
+.card-custom{
+    height:550px;
+>>>>>>> 36e186f47b090a360c80dacb4e06d4ca05ce0c16
 }
 
 .card-custom {
