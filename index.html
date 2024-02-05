@@ -14,7 +14,7 @@
         <div class="container flex-lg-column">
           <a class="navbar-brand mb-lg-4 mx-lg-auto" href="#">
             <span class = "h3 fw-bold d-block d-lg-none">Théo Guénézan</span>
-            <img src = "./img/pp.jpg" alt = "" class = "rounded-circle d-none d-lg-block mx-lg-auto"/>
+            <img src = "./img/pp.png" alt = "" class = " d-none d-lg-block mx-lg-auto"/>
           </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -23,6 +23,9 @@
             <ul class="navbar-nav ms-auto flex-lg-column text-lg-block text-lg-center">
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="#home">Acceuil</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#algo">Algo</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="#work">Travaux</a>
@@ -43,7 +46,7 @@
             <div class = "container">
                 <div class ="row">
                     <div class = "col-lg-8">
-                        <h1 class = "display-4 fw-bold text-uppercase ">Étudiant <span class ="text-brand">BUT2-INFO RACDV</span> à Montpellier</h1>
+                        <h1 class = "display-6  fw-bold text-uppercase ">Étudiant <span class ="text-brand">BUT3- Informatique (Parours Développement d'applications)</span> à Montpellier</h1>
                         <p class = "lead mt-2 mb-4">Je suis Théo Guénézan, un étudiant passionné de développement.</p>
                         <p class = "lead mt-2 mb-4"> Au fil des années, j'ai acquis une solide expérience dans ce domaine, ce qui m'a permis de développer mes compétences.</p>
                         <p class = "lead mt-2 mb-4">Je suis quelqu'un qui croit fermement en l'importance de l'apprentissage tout au long de la vie et qui cherche constamment de nouvelles occasions d'enrichir mes connaissances.</p>
@@ -52,17 +55,20 @@
                         <a href = "#about" class = "link-custom">me contacter</a>
                     </div>
                 </div>
+                <div class ="row">
+                  <a href = "/work/CV.pdf">mon cv</a>
+                </div>
             </div>
         </section>
         <!-- //HOME -->
       
-        <!-- WORK -->
-        <section id = "work" class = "full-height px-lg-5">
+        <!-- ALGO -->
+        <section id = "algo" class = "full-height px-lg-5">
           <div class = "container">
             <div class = "row pb-4"  data-aos="fade-up">
               <div class ="col-lg-8">
-                <h6 class = "text-brand text-uppercase">Travaux</h1>
-                <h1 class>Mes Travaux</h1>
+                <h6 class = "text-brand text-uppercase">Algo</h1>
+                <h1 class>Implémentation d'algorithmes</h1>
               </div>
             </div>
             <div class ="row">
@@ -74,7 +80,7 @@
                   <div class = "card-custom-content p-4">
                     <h4>Analyse d'un flux optique</h4>
                     <p>Méthodes de Horn et Schunck et de Multi-Résolution</p>
-                    <a href = "/work/flux-optique.html" class ="link-custom">Lire la suite</a>
+                    <a href = "./work/flux-optique.html" class ="link-custom">Lire la suite</a>
                     <img src="img/icon/python.png" class="img-thumbnail icon"  data-toggle="tooltip"  title="Python">
                   </div>
                 </div>  
@@ -95,7 +101,35 @@
             </div>
           </div>  
         </section>
+
         <!-- //WORK -->
+
+       <section id = "work" class = "full-height px-lg-5">
+          <div class = "container">
+            <div class = "row pb-4"  data-aos="fade-up">
+              <div class ="col-lg-8">
+                <h6 class = "text-brand text-uppercase">Travaux</h1>
+                <h1 class>Mes Projets</h1>
+              </div>
+            </div>
+            <div class ="row">
+              <div class = "col-lg-6" data-aos="fade-up" data-aos-delay = "300">
+                <div class = "card-custom rounded-4 bg-base shadow-effect">
+                  <div class ="card-custom-image rounded-4">
+                    <img class ="rounded-4" src = "img/work/webgl-cover.png" alt = "">
+                  </div>
+                  <div class = "card-custom-content p-4">
+                    <h4>Moteur de jeu</h4>
+                    <p>Création d'un moteur de jeu web sous webgl en communication avec un serveur</p>
+                    <a href = "./work/moteur_jeu.html" class ="link-custom">Lire la suite</a>
+                    <img src="img/icon/js.png" class="img-thumbnail icon"  data-toggle="tooltip"  title="JavaScript">
+                    <img src="img/icon/html5.png" class="img-thumbnail icon"  data-toggle="tooltip"  title="HTML5">
+                  </div>
+                </div>  
+              </div>
+            </div>
+          </div>  
+        </section>
 
         <!-- ABOUT -->
         <section id = "about" class = "full-height px-lg-5">
