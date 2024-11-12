@@ -1,13 +1,16 @@
 {
   "homepage": "http://theoguenezan.fr",
   "dependencies": {
-    "serve": "^14.2.4"
+    "serve": "^14.2.4",
+    "three": "^0.150.0"  // Assurez-vous que Three.js est bien installé
   },
   "devDependencies": {
-    "gh-pages": "^6.2.0"
+    "gh-pages": "^6.2.0",
+    "parcel": "^2.0.0"  // Assurez-vous que Parcel est installé
   },
   "scripts": {
+    "build": "parcel build index.html",  // Build avec Parcel
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d dist"  // "dist" est le dossier de sortie de Parcel
   }
 }
