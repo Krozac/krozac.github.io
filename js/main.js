@@ -1,6 +1,6 @@
 // Import Three.js core and necessary modules
 import * as THREE from 'three';
-import { AsciiEffect } from 'AsciiEffect';
+import { AsciiEffect } from './AsciiEffect.js'
 // Define global variables
 let container, camera, scene, renderer, effect;
 let sphere, plane,light1;
