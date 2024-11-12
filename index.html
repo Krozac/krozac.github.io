@@ -1,157 +1,131 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Théo Guénézan | Portfolio</title>
     <meta charset="utf-8">
-    <meta name = "viewport" content = "width=device-width,initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href = "./css/global.css">
-    <link rel="stylesheet" href = "./css/nav.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Théo Guénézan | Portfolio</title>
+    <link rel="stylesheet" href="./css/global.css">
+    <link rel="stylesheet" href="./css/nav.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.138.0/build/three.module.js",
+                "AsciiEffect": "https://unpkg.com/three@0.138.0/examples/jsm/effects/AsciiEffect.js"
+            }
+        }
+    </script>
 </head>
 
 <body>
-    <!-- NAV -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-        <div class="container flex-lg-column">
-          <a class="navbar-brand mb-lg-4 mx-lg-auto" href="#">
-            <span class = "h3 fw-bold d-block d-lg-none">Théo Guénézan</span>
-            <img src = "./img/pp.png" alt = "" class = " d-none d-lg-block mx-lg-auto"/>
-          </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto flex-lg-column text-lg-block text-lg-center">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#home">Acceuil</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#algo">Algo</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#work">Travaux</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#about">Contacts</a>
-              </li>
-
+    
+    <div id="EnterView"><div class="_t1" >Théo Guénézan</div><div class="_t2" >Portfolio</div></div>
+    <div id = "Frame">
+    <div class="frame_line frame_line-left"></div><div class="frame_line frame_line-right"></div><div class="frame_line frame_line-top"></div><div class="frame_line frame_line-bottom"></div>
+    </div>
+    <div id = "Title">
+        <div id="write-box">
+            <p id="write-box-header">portfolio-theoguenezan</p>
+            <p id="write-box-domain">@</p>
+            <p id="write-box-date">00/00/00</p>
+            <p id="write-box-tild">~</p>
+            <p id="write-box-content"> </p>
+        </div>
+    </div>
+    <div id = "Background"></div>
+    <header id = "SiteHeader" class = "siteHeader">
+    <h1 class="siteHeader_title">Théo Guénézan</h1>
+    <p class="siteHeader_label">Développeur Full Stack</p>
+    <nav class="navbar">
+        <div class="container">
+            <ul class="nav-links">
+                <li><a class = "selected" id = "home" href="/">Accueil</a></li>
+                <li><a id = "algo" href="/">Algo</a></li>
+                <li><a id = "work" href="/">Projets</a></li>
+                <li><a id = "about" href="/">A Propos</a></li>
             </ul>
-          </div>
         </div>
     </nav>
-    <!-- //NAV -->
-    <!-- MAIN -->
-    <div id = "content-wrapper">
-        <!-- HOME -->
-        <section id = "home" class = "full-height px-lg-5">
-            <div class = "container">
-                <div class ="row">
-                    <div class = "col-lg-8">
-                        <h1 class = "display-6  fw-bold text-uppercase ">Étudiant <span class ="text-brand">BUT3- Informatique (Parours Développement d'applications)</span> à Montpellier</h1>
-                        <p class = "lead mt-2 mb-4">Je suis Théo Guénézan, un étudiant passionné de développement.</p>
-                        <p class = "lead mt-2 mb-4"> Au fil des années, j'ai acquis une solide expérience dans ce domaine, ce qui m'a permis de développer mes compétences.</p>
-                        <p class = "lead mt-2 mb-4">Je suis quelqu'un qui croit fermement en l'importance de l'apprentissage tout au long de la vie et qui cherche constamment de nouvelles occasions d'enrichir mes connaissances.</p>
-                        <p class = "lead mt-2 mb-4"> Dans ce portfolio, j'espère pouvoir partager avec vous mes réalisations, mes projets et mes aspirations pour l'avenir. J'espère que vous pourrez y découvrir un peu plus sur moi, mes compétences et mon parcours, et que cela vous donnera un aperçu de ce que je peux apporter à votre entreprise ou organisation.</p>
-                        <a href="#work" class ="btn btn-brand me-3">Mes travaux</a>
-                        <a href = "#about" class = "link-custom">me contacter</a>
+    </header>
+    <div id="Copyright"><p>© Théo Guénézan</p></div>
+
+    <script type="module" src="js/main.js"></script>
+    
+    <!-- MAIN CONTENT -->
+    <main id = "Content" class="content" data-scroll = "area">
+        <div id="content-wrapper">
+            <!-- HOME -->
+            <section data-page="home" class="page" style="display: block; opacity:1;">
+                <div class="page-content home">
+    
+                <p>
+                    <span>Passionné de développement.</span><br>
+                    <span>Au fil des années, j'ai acquis une solide expérience dans ce domaine,</span><br>
+                    <span>ce qui m'a permis de développer mes compétences.</span><br>
+                    <span>Je crois fermement en l'importance de l'apprentissage tout au long de la vie</span><br>
+                    <span>et cherche constamment à enrichir mes connaissances.</span><br>
+                    <span>Dans ce portfolio, je partage mes réalisations, projets, et aspirations.</span><br>
+                    <span>J'espère que vous pourrez y découvrir plus sur moi</span><br>
+                    <span>et ce que je peux apporter à votre entreprise ou organisation.</span>
+                </p>
+                    <div class="row" >
+                        <a target="_blank" href="/work/CV.pdf" style="color:inherit;">Mon CV</a>
+                        <a target="_blank"href="/work/Séance 4-Analyse apprentissage BUT 3 (1).pdf" style="color:inherit;">Analyse de mes compétences</a>
                     </div>
                 </div>
-                <div class ="row">
-                  <a href = "/work/CV.pdf">mon cv</a>
+            </section>
+            <!-- //HOME -->
+
+            <!-- ALGO -->
+            <section data-page="algo" class="page">
+                <div class="algo">
+                    <div class="card">
+                        <h4>Analyse d'un flux optique</h4>
+                        <p>Méthodes de Horn et Schunck et de Multi-Résolution</p>
+                        <a href="./work/flux-optique.html" class="link-custom">Lire la suite</a>
+                    </div>
+                    <div class="card">
+                        <h4>Cryptage Asymétrique</h4>
+                        <p>Méthode RSA, Théorèmes d'Euclide, Fermat et Cryptosystème de ElGamal</p>
+                        <a href="#" class="link-custom">Lire la suite</a>
+                    </div>
+                  
+                </div>  
+            </section>
+            <!-- //ALGO -->
+
+            <!-- WORK -->
+            <section data-page="work" class="page">
+                <div class="work">
+                    <div class="card">
+                        <h4>Moteur de jeu</h4>
+                        <p>Création d'un moteur de jeu web sous webgl en communication avec un serveur</p>
+                        <a href="./work/moteur_jeu.html" class="link-custom">Lire la suite</a>
+                    </div>
+                </div>  
+            </section>
+            <!-- //WORK -->
+
+            <!-- ABOUT -->
+            <section data-page="about" class="page">
+                <div class="container">
+                    <!-- About content goes here -->
                 </div>
-                <div class ="row">
-                  <a href = "/work/Séance 4-Analyse apprentissage BUT 3 (1).pdf">analyse de mes compétences</a>
-                </div>
-            </div>
-        </section>
-        <!-- //HOME -->
-      
-        <!-- ALGO -->
-        <section id = "algo" class = "full-height px-lg-5">
-          <div class = "container">
-            <div class = "row pb-4"  data-aos="fade-up">
-              <div class ="col-lg-8">
-                <h6 class = "text-brand text-uppercase">Algo</h1>
-                <h1 class>Implémentation d'algorithmes</h1>
-              </div>
-            </div>
-            <div class ="row">
-              <div class = "col-lg-6" data-aos="fade-up" data-aos-delay = "300">
-                <div class = "card-custom rounded-4 bg-base shadow-effect">
-                  <div class ="card-custom-image rounded-4">
-                    <img class ="rounded-4" src = "img/work/flux-optique.png" alt = "">
-                  </div>
-                  <div class = "card-custom-content p-4">
-                    <h4>Analyse d'un flux optique</h4>
-                    <p>Méthodes de Horn et Schunck et de Multi-Résolution</p>
-                    <a href = "./work/flux-optique.html" class ="link-custom">Lire la suite</a>
-                    <img src="img/icon/python.png" class="img-thumbnail icon"  data-toggle="tooltip"  title="Python">
-                  </div>
-                </div>  
-              </div>
-              <div class = "col-lg-6" data-aos="fade-up" data-aos-delay = "600">
-                <div class = "card-custom rounded-4 bg-base shadow-effect">
-                  <div class ="card-custom-image rounded-4">
-                    <img class ="rounded-4" src = "img/work/cryptage-asymètrique.png" alt = "">
-                  </div>
-                  <div class = "card-custom-content p-4">
-                    <h4>Cryptage Asymétrique</h4>
-                    <p>Méthode RSA, Théorèmes d'Euclide, Fermat et Cryptosystème de ElGamal</p>
-                    <a href = "#" class ="link-custom">Lire la suite</a>
-                    <img src="img/icon/python.png" class="img-thumbnail icon"  data-toggle="tooltip"  title="Python">
-                  </div>
-                </div>  
-              </div>  
-            </div>
-          </div>  
-        </section>
-
-        <!-- //WORK -->
-
-       <section id = "work" class = "full-height px-lg-5">
-          <div class = "container">
-            <div class = "row pb-4"  data-aos="fade-up">
-              <div class ="col-lg-8">
-                <h6 class = "text-brand text-uppercase">Travaux</h1>
-                <h1 class>Mes Projets</h1>
-              </div>
-            </div>
-            <div class ="row">
-              <div class = "col-lg-6" data-aos="fade-up" data-aos-delay = "300">
-                <div class = "card-custom rounded-4 bg-base shadow-effect">
-                  <div class ="card-custom-image rounded-4">
-                    <img class ="rounded-4" src = "img/work/webgl-cover.png" alt = "">
-                  </div>
-                  <div class = "card-custom-content p-4">
-                    <h4>Moteur de jeu</h4>
-                    <p>Création d'un moteur de jeu web sous webgl en communication avec un serveur</p>
-                    <a href = "./work/moteur_jeu.html" class ="link-custom">Lire la suite</a>
-                    <img src="img/icon/js.png" class="img-thumbnail icon"  data-toggle="tooltip"  title="JavaScript">
-                    <img src="img/icon/html5.png" class="img-thumbnail icon"  data-toggle="tooltip"  title="HTML5">
-                  </div>
-                </div>  
-              </div>
-            </div>
-          </div>  
-        </section>
-
-        <!-- ABOUT -->
-        <section id = "about" class = "full-height px-lg-5">
-          <div class = "container">
-          </div>
-        </section>
-        <!-- //ABOUT -->
-    </div>
-    <!-- //MAIN -->
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
-<script>
-  AOS.init();
-  var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-  var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-    return new bootstrap.Tooltip(tooltipTriggerEl)
-  })
-</script>
+            </section>
+            <!-- //ABOUT -->
+        </div>
+    </main>
+    <!-- //MAIN CONTENT -->
+    
+    <script src="js/simulateTyping.js"></script>
+    <script src="js/link.js"></script>
+    <script src="js/enterview.js"></script>
+    
+    <script>
+        simulateTyping("Accueil", "write-box-content", 5);
+        document.getElementById("write-box-date").innerHTML = new Date().toLocaleDateString();
+    </script>
 </body>
+</html>
