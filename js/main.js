@@ -1,9 +1,9 @@
-// Import Three.js core and necessary modules
 import * as THREE from 'three';
 import { AsciiEffect } from './AsciiEffect.js'
+
 // Define global variables
 let container, camera, scene, renderer, effect;
-let sphere, plane,light1;
+let sphere, plane, light1;
 let start = Date.now();
 
 // Initialize the scene
@@ -29,16 +29,18 @@ function init() {
     1,                           // near
     2000                         // far
   );
-    camera.position.z = 2000; 
-    camera.position.x = 700; 
+  
+  // Adjust the camera's X position based on screen width
+  camera.position.z = 2000;
+  camera.position.x = width/3; // This positions the sphere on the left of the screen
+
   // Set up the scene
   scene = new THREE.Scene();
 
   // Add lighting to the scene
-   light1 = new THREE.PointLight(0xfffff);
+  light1 = new THREE.PointLight(0xfffff);
   light1.position.set(500, 500, 500);
   scene.add(light1);
-
 
   // Create a sphere and add it to the scene
   sphere = new THREE.Mesh(
@@ -47,11 +49,11 @@ function init() {
   );
   scene.add(sphere);
 
-
   // Set up the WebGL renderer
   renderer = new THREE.WebGLRenderer();
   renderer.setSize(width, height);
-	  renderer.setClearColor(0xf0f0f0);
+  renderer.setClearColor(0xf0f0f0);
+
   // Set up the ASCII effect
   effect = new AsciiEffect(renderer);
   effect.setSize(width, height);
@@ -59,7 +61,6 @@ function init() {
   effect.domElement.style.backgroundColor = 'black';
   container.appendChild(effect.domElement);
 
- 
   // Add event listener for window resize
   window.addEventListener('resize', onWindowResize, false);
 }
@@ -74,6 +75,9 @@ function onWindowResize() {
   camera.right = (frustumSize * aspect) / 2;
   camera.top = frustumSize / 2;
   camera.bottom = -frustumSize / 2;
+
+  // Update camera's X position to keep the sphere on the left side of the screen
+  camera.position.x = window.innerWidth/2;
 
   // Update camera and renderer settings
   camera.updateProjectionMatrix();
@@ -94,7 +98,6 @@ function render() {
   // Rotate the sphere (keeping your existing rotations)
   sphere.rotation.x = timer * 0.0003;
   sphere.rotation.z = timer * 0.0002;
-
 
   // Render the scene with ASCII effect
   effect.render(scene, camera);

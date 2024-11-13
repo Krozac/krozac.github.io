@@ -32,7 +32,6 @@ document.querySelectorAll("a").forEach(link => {
     if (link.getAttribute("href") === "/" && hasBeforeElement(link)) {
         link.addEventListener("click", function(event) {
             event.preventDefault();  // Prevent default link action
-            
             // Remove 'selected' class from other links
             document.querySelectorAll("a.selected").forEach(selectedLink => {
                 selectedLink.classList.remove("selected");
