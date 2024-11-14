@@ -1,67 +1,87 @@
 import * as THREE from 'three';
-import { AsciiEffect } from './AsciiEffect.js'
+import { AsciiEffect } from './AsciiEffect.js';
 
 // Define global variables
 let container, camera, scene, renderer, effect;
-let sphere, plane, light1;
+let sphere, ring, light1;
 let start = Date.now();
 
 // Initialize the scene
 init();
 animate();
-
 function init() {
-  // Set up scene dimensions
   const width = window.innerWidth || 2;
   const height = window.innerHeight || 2;
-
-  // Create a container element for the scene
   container = document.getElementById("Background");
 
-  // Set up the camera
   const aspect = width / height;
-  const frustumSize = 1000; // Adjust as needed for zoom level
+  const frustumSize = 1000;
   camera = new THREE.OrthographicCamera(
-    (-frustumSize * aspect) / 2, // left
-    (frustumSize * aspect) / 2,  // right
-    frustumSize / 2,             // top
-    -frustumSize / 2,            // bottom
-    1,                           // near
-    2000                         // far
+    (-frustumSize * aspect) / 2,
+    (frustumSize * aspect) / 2,
+    frustumSize / 2,
+    -frustumSize / 2,
+    1,
+    8000
   );
-  
-  // Adjust the camera's X position based on screen width
-  camera.position.z = 2000;
-  camera.position.x = width/3; // This positions the sphere on the left of the screen
 
-  // Set up the scene
+  camera.position.z = 2000;
+  camera.position.x = width / 3;
   scene = new THREE.Scene();
 
-  // Add lighting to the scene
-  light1 = new THREE.PointLight(0xfffff);
-  light1.position.set(500, 500, 500);
+  // Lighting
+  const ambientLight = new THREE.AmbientLight(0xffffff, 0);
+  scene.add(ambientLight);
+
+  const directionalLight = new THREE.DirectionalLight(0xffffff, 0.1);
+  directionalLight.position.set(2000, 2000, 2000);
+  directionalLight.castShadow = true;
+  directionalLight.shadow.mapSize.width = 2048;
+  directionalLight.shadow.mapSize.height = 2048;
+  directionalLight.shadow.camera.near = 0.5;
+  directionalLight.shadow.camera.far = 5000;
+  scene.add(directionalLight);
+
+  light1 = new THREE.SpotLight(0xffffff, 0.8);
+  light1.position.set(1000, 1000, 1500);
+  light1.castShadow = true;
+  light1.angle = Math.PI / 6;
+  light1.penumbra = 0;
   scene.add(light1);
 
-  // Create a sphere and add it to the scene
+  // Objects
   sphere = new THREE.Mesh(
     new THREE.SphereGeometry(500, 20, 10),
-    new THREE.MeshLambertMaterial()
+    new THREE.MeshStandardMaterial({ color: 0xffffff })
   );
+  sphere.castShadow = true;
   scene.add(sphere);
 
-  // Set up the WebGL renderer
+  const ringGeometry = new THREE.RingGeometry(800, 600, 32);
+  const ringMaterial = new THREE.MeshLambertMaterial({ color: 0xffffff, side: THREE.DoubleSide });
+  ring = new THREE.Mesh(ringGeometry, ringMaterial);
+  ring.rotation.x = Math.PI / 2.3;
+  ring.position.z = sphere.position.z;
+  ring.rotation.y = Math.PI / 8;
+  scene.add(ring);
+
+  // Renderer setup
   renderer = new THREE.WebGLRenderer();
   renderer.setSize(width, height);
   renderer.setClearColor(0xf0f0f0);
+  renderer.shadowMap.enabled = true;
+  renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+  renderer.outputEncoding = THREE.sRGBEncoding;
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 1.2;
 
-  // Set up the ASCII effect
+  // ASCII Effect setup
   effect = new AsciiEffect(renderer);
   effect.setSize(width, height);
   effect.domElement.style.color = 'white';
   effect.domElement.style.backgroundColor = 'black';
   container.appendChild(effect.domElement);
 
-  // Add event listener for window resize
   window.addEventListener('resize', onWindowResize, false);
 }
 
@@ -77,7 +97,7 @@ function onWindowResize() {
   camera.bottom = -frustumSize / 2;
 
   // Update camera's X position to keep the sphere on the left side of the screen
-  camera.position.x = window.innerWidth/2;
+  camera.position.x = window.innerWidth / 3;
 
   // Update camera and renderer settings
   camera.updateProjectionMatrix();
@@ -95,10 +115,15 @@ function render() {
   // Calculate time-based variables for sphere animation
   const timer = Date.now() - start;
 
-  // Rotate the sphere (keeping your existing rotations)
+  // Rotate the sphere
   sphere.rotation.x = timer * 0.0003;
   sphere.rotation.z = timer * 0.0002;
 
+  // Continuous rotation for the ring
+  //ring.rotation.x = Math.PI / 2.3 + Math.sin(timer * 0.0002)*0.00<5; // Smooth continuous rotation around the X-axis
+  ring.rotation.y = Math.PI / 8 + Math.sin(timer * 0.0004)*0.1;   // Smooth continuous rotation around the Y-axis
+  ring.rotation.z = timer * 0.01;
+    
   // Render the scene with ASCII effect
   effect.render(scene, camera);
 }

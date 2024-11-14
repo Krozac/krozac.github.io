@@ -50,7 +50,11 @@
     </nav>
     </header>
     <div id="Copyright"><p>© Théo Guénézan</p></div>
-
+    
+    <div id = "Theme">
+        <span class="radio-box" id="theme-clair" onclick="changeTheme('clair')"></span><p>CLAIR</p>
+        <span class="radio-box radioselected" id="theme-sombre" onclick="changeTheme('sombre')"></span><p>SOMBRE</p>
+    </div>
     <script type="module" src="js/main.js"></script>
     
     <!-- MAIN CONTENT -->
@@ -119,6 +123,27 @@
     <script>
         simulateTyping("Accueil", "write-box-content", 5);
         document.getElementById("write-box-date").innerHTML = new Date().toLocaleDateString();
+    </script>
+    
+    <script>
+        function changeTheme(theme) {
+            const root = document.documentElement;
+
+            // Réinitialiser les classes des deux boutons
+            document.getElementById("theme-clair").classList.remove("radioselected");
+            document.getElementById("theme-sombre").classList.remove("radioselected");
+
+            // Appliquer les styles en fonction du thème sélectionné
+            if (theme === 'clair') {
+                root.style.setProperty('--c-bg', 'rgb(255, 255, 255)');  // fond clair
+                root.style.setProperty('--c-bg-dark', 'rgb(240, 240, 240)');  // fond clair
+                document.getElementById("theme-clair").classList.add("radioselected");
+            } else {
+                root.style.setProperty('--c-bg', 'rgb(46, 46, 46)');  // fond sombre
+                root.style.setProperty('--c-bg-dark', 'rgb(23, 23, 23)');  // fond sombre
+                document.getElementById("theme-sombre").classList.add("radioselected");
+            }
+        }
     </script>
 </body>
 </html>

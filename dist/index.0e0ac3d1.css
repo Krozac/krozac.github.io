@@ -24,6 +24,7 @@ body {
   font-family: Montserrat, sans-serif;
   font-size: 1.3rem;
   font-weight: 250;
+  transition: background-color .8s, color .8s;
 }
 
 #Frame {
@@ -32,6 +33,7 @@ body {
   top: var(--pad);
   bottom: var(--pad);
   z-index: 10;
+  mix-blend-mode: difference;
   position: fixed;
 }
 
@@ -145,7 +147,7 @@ body {
   top: var(--pad);
   bottom: var(--pad);
   pointer-events: none;
-  opacity: .15;
+  opacity: .3;
   mix-blend-mode: difference;
   position: fixed;
   overflow: hidden;
@@ -179,6 +181,7 @@ body {
   top: calc(var(--pad) * 2);
   z-index: 10;
   white-space: nowrap;
+  mix-blend-mode: difference;
   position: fixed;
 }
 
@@ -320,5 +323,45 @@ main {
   .home, .algo, .work {
     width: calc(var(--vw, 1vw) * 10);
   }
+}
+
+#Theme {
+  right: var(--pad);
+  top: calc(var(--pad) / 2);
+  mix-blend-mode: difference;
+  font-size: .8rem;
+  font-weight: 500;
+  position: fixed;
+}
+
+#Theme p {
+  padding: 5px;
+  display: inline;
+}
+
+.radio-box {
+  cursor: pointer;
+  color: #fff;
+  border: 1px solid #fff;
+  justify-content: center;
+  align-items: center;
+  width: 10px;
+  height: 10px;
+  transition: background-color .3s, border-color .3s;
+  display: inline-block;
+}
+
+.radio-box:hover {
+  background-color: #555;
+}
+
+.radioselected {
+  background-color: #c7c7c7;
+  border-color: #333;
+}
+
+.radio-box:before {
+  content: attr(id);
+  display: none;
 }
 /*# sourceMappingURL=index.0e0ac3d1.css.map */

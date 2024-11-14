@@ -27,6 +27,7 @@ body {
     font-weight: 250;
     background-color: var(--c-bg-dark);
     font-size: 1.3rem;
+    transition: background-color .8s ease, color .8s ease;
 }
 
 /* Frame container styling */
@@ -37,6 +38,7 @@ body {
     top: var(--pad);
     bottom: var(--pad);
     z-index: 10;
+        mix-blend-mode: difference;
 }
 
 /* Frame lines */
@@ -103,7 +105,7 @@ body {
     bottom: var(--pad);
     pointer-events: none;
     overflow: hidden;
-    opacity: 0.15;
+    opacity: 0.3;
     mix-blend-mode: difference;
 }
 
@@ -138,6 +140,7 @@ body {
     top: calc(var(--pad) * 2);
     z-index: 10;
     white-space: nowrap;
+    mix-blend-mode: difference;
 }
 
 /* Enter view overlay */
@@ -249,4 +252,49 @@ main { display: block; }
     .home, .algo, .work {
         width: calc(var(--vw, 1vw) * 10);
     }
+}
+
+
+#Theme{
+    font-size: .8rem;
+    font-weight:500;
+    position:fixed;
+    right:var(--pad);
+    top:calc(var(--pad)/2);
+    mix-blend-mode: difference;
+}
+#Theme p {
+    display:inline;
+    padding:5px;
+}
+
+
+.radio-box {
+    width: 10px;
+    height: 10px;
+    border: 1px solid #fff;
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color: #fff;
+
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+/* Effet au survol */
+.radio-box:hover {
+    background-color: #555;
+}
+
+/* Changer l'apparence du "bouton" sélectionné */
+.radioselected {
+    background-color: #c7c7c7;
+    border-color: #333;
+}
+
+/* Stylisation des textes à l'intérieur des "boutons" */
+.radio-box::before {
+    content: attr(id);
+    display: none;
 }
