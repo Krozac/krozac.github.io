@@ -1,2 +1,0 @@
-function e(e,t,n){let o=1,c=50/t,i=setInterval(function(){(o-=c)<=0?(o=0,e.style.opacity=o,clearInterval(i),n&&n()):e.style.opacity=o},50)}document.addEventListener("DOMContentLoaded",function(){let t=document.getElementById("EnterView"),n=t.querySelector("._t1"),o=t.querySelector("._t2");setTimeout(()=>{e(n,200),setTimeout(()=>{e(o,200,function(){e(t,200,function(){t.remove()})})},100)},1e3)});
-//# sourceMappingURL=index.a09085da.js.map
