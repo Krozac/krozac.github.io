@@ -1,0 +1,308 @@
+/* Variables globales */
+:root {
+    --pad: max(20px, 4vmin);
+    --c-bg: rgb(46, 46, 46);
+    --c-bg-dark: rgb(23, 23, 23);
+    --c-white: rgb(214, 214, 214);
+    --c-purple: rgb(158, 134, 200);
+    --c-yellow: rgb(229, 181, 103);
+    --c-green: rgb(180, 210, 115);
+    --vw: 19.2px;
+    --vh: 3.72px;
+    --vmax: 19.2px;
+    --vmin: 3.72px;
+}
+
+/* Base reset */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+    color: var(--c-white);
+    font-family: "Montserrat", sans-serif;
+    font-weight: 250;
+    background-color: var(--c-bg-dark);
+    font-size: 1.3rem;
+    transition: background-color .8s ease, color .8s ease;
+}
+
+/* Frame container styling */
+#Frame {
+    position: fixed;
+    left: var(--pad);
+    right: var(--pad);
+    top: var(--pad);
+    bottom: var(--pad);
+    z-index: 10;
+        mix-blend-mode: difference;
+}
+
+/* Frame lines */
+.frame_line {
+    position: absolute;
+    background-color: #fff;
+    opacity: 1;
+}
+.frame_line-left { left: 0; top: 0; width: 1px; height: 100%; }
+.frame_line-right { right: 0; top: 0; width: 1px; height: 100%; }
+.frame_line-top { left: 0; top: 0; width: 100%; height: 1px; }
+.frame_line-bottom { left: 0; bottom: 0; width: 100%; height: 1px; }
+
+/* Write box styling */
+#write-box { z-index: 10; }
+#write-box p { display: inline; }
+#write-box-header { color: var(--c-green); }
+#write-box-domain { color: var(--c-purple); }
+#write-box-date { color: var(--c-yellow); }
+#write-box-tild { color: var(--c-white); }
+#write-box-content {
+    width: 100px;
+    display: inline-block !important;
+}
+#home::before{
+    content:"Accueil";
+    display:none;
+}
+
+#algo::before{
+    content:"Algorithmes";
+    display:none;
+}
+#work::before{
+    content:"Projets";
+    display:none;
+}
+#about::before{
+    content:"A propos";
+    display:none;
+}
+
+/* Navbar styling */
+.navbar { margin-top: 50px; }
+.nav-links {
+    list-style: none;
+    line-height: 1.4rem;
+}
+.nav-links a {
+    text-decoration: none;
+    color: inherit;
+    transition: opacity 0.4s cubic-bezier(0.1, 0.4, 0.2, 1);
+}
+.nav-links a:hover { opacity: 0.6; }
+
+/* Background styling */
+#Background {
+    background-color: var(--c-bg-dark);
+    position: fixed;
+    z-index: 1;
+    left: var(--pad);
+    right: var(--pad);
+    top: var(--pad);
+    bottom: var(--pad);
+    pointer-events: none;
+    overflow: hidden;
+    opacity: 0.2;
+    mix-blend-mode: difference;
+}
+
+/* Selected state */
+/*
+.selected {
+    opacity: 0.6;
+    pointer-events: none;
+}
+*/
+/* Copyright styling */
+#Copyright {
+    position: fixed;
+    z-index: 10;
+    right: var(--pad);
+    bottom: calc(var(--pad) * 0.5 - 0.5em);
+    font-size: 80%;
+    opacity: 0.7;
+    mix-blend-mode: difference;
+}
+
+/* Site header and title */
+.siteHeader {
+    position: fixed;
+    z-index: 20;
+    left: calc(var(--pad) * 2);
+    top: calc(var(--pad) * 2);
+    mix-blend-mode: difference;
+}
+#Title {
+    position: fixed;
+    right: calc(var(--pad) * 3);
+    top: calc(var(--pad) * 2);
+    z-index: 10;
+    white-space: nowrap;
+    mix-blend-mode: difference;
+}
+
+/* Enter view overlay */
+#EnterView {
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    will-change: opacity;
+    background-color: var(--c-bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 0.5em;
+    font-size: 30px;
+}
+#EnterView ._t1 { font-weight: 400; }
+#EnterView ._t2 { font-weight: 200; }
+
+/* Page structure */
+.page {
+    min-height: calc(var(--vh, 1vh) * 100);
+    overflow:hidden;
+    word-wrap: break-word;
+}
+
+.work{
+    z-index:99;
+}
+.work-lang p{
+    display: inline;
+    margin-right:5px;
+    font-size: 19px;
+    font-style:italic;
+    opacity: 0.8;
+}
+#content-wrapper { position: relative; min-height: 100%; }
+main { display: block; }
+
+/* Content styling */
+.content {
+    position: fixed;
+    z-index: 10;
+    left: var(--pad);
+    right: var(--pad);
+    top: var(--pad);
+    bottom: var(--pad);
+    overflow: hidden;
+    mix-blend-mode: difference;
+}
+
+/* Home, algo, and work sections */
+.home {
+    position: absolute;
+    right: calc(var(--pad) * 2);
+    bottom: calc(var(--pad) * 2);
+    width: calc(var(--vw, 1vw) * 30);
+}
+.algo {
+    position: absolute;
+    right: calc(var(--pad) * 2);
+    bottom: calc(var(--pad) * 2);
+    overflow-y: scroll;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    max-height: calc(var(--vh, 1vh) * 100);
+    -webkit-mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);
+    mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.algo::-webkit-scrollbar { display: none; }
+.work {
+    position: absolute;
+    right: calc(var(--pad) * 2);
+    bottom: calc(var(--pad) * 2);
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1000px) {
+    :root {
+        --pad: max(10px, 4vmin); /* Reduce padding for smaller screens */
+    }
+    body { font-size: 1rem; } /* Smaller font size */
+    #Title {
+        right: var(--pad); /* Adjust positioning for small screens */
+        top: var(--pad);
+    }
+    .navbar { margin-top: 20px; } /* Adjust navbar spacing */
+    .content {
+        left: var(--pad);
+        right: var(--pad);
+        top: var(--pad);
+        bottom: var(--pad);
+    }
+    .home, .algo, .work {
+        bottom: var(--pad);
+        left : var(--pad);
+        right : var(--pad);
+        width: calc(var(--vw, 1vw) * 30);
+    }
+}
+
+@media (max-width: 620px) {
+    body { font-size: 0.8rem; }
+    #EnterView { font-size: 25px; }
+    #Title{
+        left:var(--pad);
+        padding-left:var(--pad);
+        font-size: 0.7rem;
+    }
+    .navbar { margin-top: 10px; }
+    .home, .algo, .work {
+        width: calc(var(--vw, 1vw) * 10);
+    }
+}
+
+
+#Theme{
+    font-size: .8rem;
+    font-weight:500;
+    position:fixed;
+    right:var(--pad);
+    top:1px;
+    mix-blend-mode: difference;
+}
+#Theme p {
+    display:inline;
+    padding:5px;
+}
+
+
+.radio-box {
+    width: 10px;
+    height: 10px;
+    border: 1px solid #fff;
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color: #fff;
+
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+/* Effet au survol */
+.radio-box:hover {
+    background-color: #555;
+}
+
+/* Changer l'apparence du "bouton" sélectionné */
+.radioselected {
+    background-color: #c7c7c7;
+    border-color: #333;
+}
+
+/* Stylisation des textes à l'intérieur des "boutons" */
+.radio-box::before {
+    content: attr(id);
+    display: none;
+}
