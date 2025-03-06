@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkkrozac_github_io=self.webpackChunkkrozac_github_io||[]).push([[13],{13:(t,e,i)=>{i.r(e),i.d(e,{EntityManager:()=>n});class n{constructor(){this.entities=new Map,this.nextEntityId=0}createEntity(){const t=this.nextEntityId++;return this.entities.set(t,new Map),t}addComponent(t,e,i){const n=this.entities.get(t);n&&n.set(e,i)}getComponent(t,e){const i=this.entities.get(t);return i?i.get(e):void 0}getEntities(){return this.entities}}}}]);
+//# sourceMappingURL=13.61de7791.chunk.js.map

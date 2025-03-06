@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkkrozac_github_io=self.webpackChunkkrozac_github_io||[]).push([[586],{586:(t,a,h)=>{function u(t,a){return Math.sqrt(Math.pow(t.x-a.x,2)+Math.pow(t.y-a.y,2))}h.r(a),h.d(a,{distance:()=>u})}}]);
+//# sourceMappingURL=586.378fe0b4.chunk.js.map

@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkkrozac_github_io=self.webpackChunkkrozac_github_io||[]).push([[256],{256:(e,o,t)=>{function i(){return{x:arguments.length>0&&void 0!==arguments[0]?arguments[0]:0,y:arguments.length>1&&void 0!==arguments[1]?arguments[1]:0}}t.r(o),t.d(o,{VelocityComponent:()=>i})}}]);
+//# sourceMappingURL=256.2c21c5c3.chunk.js.map
