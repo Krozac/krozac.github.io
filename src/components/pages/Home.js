@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { simulateTyping } from '../utils/simulateTyping';
+import { simulateTyping } from '../../utils/simulateTyping';
 function Home() {
     
       useEffect(() => {

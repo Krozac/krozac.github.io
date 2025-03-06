@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
-import workData from '../datas/work';
-import { simulateTyping } from '../utils/simulateTyping';
+import workData from '../../datas/work';
+import { simulateTyping } from '../../utils/simulateTyping';
 
 function Work () {
     

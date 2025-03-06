@@ -1,0 +1,80 @@
+{
+    "entities": [
+        {
+            "id": "BoidEntity",
+            "fileName": "ent_boid",
+            "description": "Entité représentant un boid, qui est un agent dans la simulation de vol en groupe.\n\nElle inclut des composants pour la position, la vitesse, l'accélération et le dessin.",
+            "dependencies": [
+                "BoidComponent",
+                "PositionComponent",
+                "VelocityComponent",
+                "AccelerationComponent",
+                "DrawComponent"
+            ]
+        }
+    ],
+    "systems": [
+        {
+            "id": "BoidSystem",
+            "fileName": "sys_boid",
+            "description": "Système gérant le comportement des boids, y compris les règles de séparation, d'alignement et de cohésion.\n\nIl met à jour les composants des boids en fonction de ces règles.",
+            "dependencies": [
+                "BoidComponent",
+                "PositionComponent",
+                "VelocityComponent",
+                "AccelerationComponent"
+            ]
+        },
+        {
+            "id": "MovementSystem",
+            "fileName": "sys_movement",
+            "description": "Système responsable de la mise à jour des positions des entités en fonction de leur vitesse.\n\nIl assure que les entités se déplacent selon leurs composants de vitesse.",
+            "dependencies": [
+                "PositionComponent",
+                "VelocityComponent"
+            ]
+        },
+        {
+            "id": "DrawSystem",
+            "fileName": "sys_draw",
+            "description": "Système responsable du dessin des entités à l'écran en utilisant leurs composants de position et de dessin.\n\nIl rend la représentation visuelle des entités.",
+            "dependencies": [
+                "PositionComponent",
+                "DrawComponent",
+                "VelocityComponent"
+            ]
+        }
+    ],
+    "components": [
+        {
+            "id": "BoidComponent",
+            "fileName": "cmp_boid",
+            "description": "Composant représentant les propriétés spécifiques d'un boid, telles que ses comportements et attributs uniques dans la simulation de vol en groupe.",
+            "dependencies": []
+        },
+        {
+            "id": "PositionComponent",
+            "fileName": "cmp_position",
+            "description": "Composant stockant la position d'une entité dans l'espace.\n\nIl est utilisé par les systèmes pour déterminer où se trouve une entité.\n\nPropriétés:\n- x: nombre flottant représentant la coordonnée x de la position.\n- y: nombre flottant représentant la coordonnée y de la position.",
+            "dependencies": []
+        },
+        {
+            "id": "VelocityComponent",
+            "fileName": "cmp_velocity",
+            "description": "Composant contenant la vitesse d'une entité, qui est utilisée pour calculer son mouvement au fil du temps.\n\nPropriétés:\n- x: nombre flottant représentant la composante x de la vitesse.\n- y: nombre flottant représentant la composante y de la vitesse.",
+            "dependencies": []
+        },
+        {
+            "id": "AccelerationComponent",
+            "fileName": "cmp_acceleration",
+            "description": "Composant définissant l'accélération d'une entité, qui influence sa vitesse et, par conséquent, son mouvement.\n\nPropriétés:\n- x: nombre flottant représentant la composante x de l'accélération.\n- y: nombre flottant représentant la composante y de l'accélération.",
+            "dependencies": []
+        },
+        {
+            "id": "DrawComponent",
+            "fileName": "cmp_draw",
+            "description": "Composant utilisé pour dessiner une entité à l'écran.\n\nIl inclut des propriétés liées à la représentation visuelle de l'entité.\n\nPropriétés:\n- couleur: chaîne de caractères représentant la couleur de l'entité.\n- forme: chaîne de caractères représentant la forme de l'entité (par exemple, cercle, carré).",
+            "dependencies": []
+        }
+    ]
+}

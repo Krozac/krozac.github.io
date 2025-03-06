@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { simulateTyping } from '../utils/simulateTyping';
 
 const Title = () => {
   const currentDate = new Date().toLocaleDateString();

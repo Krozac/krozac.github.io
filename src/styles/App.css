@@ -33,6 +33,7 @@ body {
 /* Frame container styling */
 #Frame {
     position: fixed;
+    pointer-events: none;
     left: var(--pad);
     right: var(--pad);
     top: var(--pad);
