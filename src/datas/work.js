@@ -20,6 +20,12 @@ const workData = [
         description: "Réalisation d'un simulateur de volée d'oiseaux (Boids) sous typescript",
         link: "https://theoguenezan.fr/boids",
         lang:["ccs","html","js","typescript"]
+    },    
+    {
+        title: "Carte Interactive Whiteout survival",
+        description: "Création d'une carte interactive open source pour le jeu Whiteout survival",
+        link: "https://github.com/Krozac/wos-interactive-map",
+        lang:["three.js","html","js","css","node.js","mongodb"]
     },
 ];
 

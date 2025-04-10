@@ -1,0 +1,101 @@
+/* General styling for the About page */
+.about-page {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    color: var(--c-white);
+    background-color: var(--c-bg-dark);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    position: absolute;
+    right: calc(var(--pad) * 10);
+    bottom: calc(var(--pad) * 5);
+}
+
+/* Styling for the social links section */
+.social-links {
+    text-align: center;
+}
+
+.social-links h2 {
+    font-size: 2.5rem;
+    margin-bottom: 25px;
+    color: var(--c-yellow);
+}
+
+.social-links ul {
+    list-style: none;
+    padding: 0;
+    display: block;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-item {
+    display: flex;
+    align-items: center;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+.social-item a {
+    text-decoration: none;
+    color: var(--c-white);
+    transition: color 0.3s ease, transform 0.3s ease;
+    display: flex;
+}
+
+.social-item a p {
+    margin-right: 10px;
+    font-size: 2rem;
+    color: var(--c-purple);
+    display: flex;
+    align-items: center;
+}
+.social-item a:hover {
+    color: var(--c-purple);
+    transform: scale(1.1);
+}
+
+.social-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: var(--c-bg);
+    padding: 5px;
+    transition: transform 0.3s ease;
+}
+
+.social-item a:hover .social-icon {
+    transform: rotate(360deg);
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    .about-page {
+        padding: 10px;
+    }
+
+    #write-box-title {
+        font-size: 1.5rem;
+    }
+
+    #write-box-content {
+        font-size: 1rem;
+    }
+
+    .social-links h2 {
+        font-size: 1.2rem;
+    }
+
+    .social-item {
+        font-size: 1rem;
+    }
+
+    .social-icon {
+        width: 25px;
+        height: 25px;
+    }
+}
