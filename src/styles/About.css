@@ -73,17 +73,13 @@
 }
 
 /* Responsive design for smaller screens */
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
     .about-page {
         padding: 10px;
     }
 
     #write-box-title {
         font-size: 1.5rem;
-    }
-
-    #write-box-content {
-        font-size: 1rem;
     }
 
     .social-links h2 {
@@ -95,7 +91,10 @@
     }
 
     .social-icon {
-        width: 25px;
-        height: 25px;
+        width: 150px;
+        height: 150px;
+    }
+    .social-item a p {
+        font-size: 4rem;
     }
 }

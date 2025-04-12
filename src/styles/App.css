@@ -181,6 +181,7 @@ body {
     font-size: 19px;
     font-style:italic;
     opacity: 0.8;
+    padding: 5px;
 }
 #content-wrapper { position: relative; min-height: 100%; }
 main { display: block; }
@@ -224,44 +225,6 @@ main { display: block; }
     bottom: calc(var(--pad) * 2);
 }
 
-/* Media Queries for Responsiveness */
-@media (max-width: 1000px) {
-    :root {
-        --pad: max(10px, 4vmin); /* Reduce padding for smaller screens */
-    }
-    body { font-size: 1rem; } /* Smaller font size */
-    #Title {
-        right: var(--pad); /* Adjust positioning for small screens */
-        top: var(--pad);
-    }
-    .navbar { margin-top: 20px; } /* Adjust navbar spacing */
-    .content {
-        left: var(--pad);
-        right: var(--pad);
-        top: var(--pad);
-        bottom: var(--pad);
-    }
-    .home, .algo, .work {
-        bottom: var(--pad);
-        left : var(--pad);
-        right : var(--pad);
-        width: calc(var(--vw, 1vw) * 30);
-    }
-}
-
-@media (max-width: 620px) {
-    body { font-size: 0.8rem; }
-    #EnterView { font-size: 25px; }
-    #Title{
-        left:var(--pad);
-        padding-left:var(--pad);
-        font-size: 0.7rem;
-    }
-    .navbar { margin-top: 10px; }
-    .home, .algo, .work {
-        width: calc(var(--vw, 1vw) * 10);
-    }
-}
 
 
 #Theme{
@@ -307,3 +270,58 @@ main { display: block; }
     content: attr(id);
     display: none;
 }
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1000px) {
+    :root {
+        --pad: max(10px, 4vmin); /* Reduce padding for smaller screens */
+    }
+    body { font-size: 3.5rem; } 
+    #Title {
+        font-size: 1.5rem; 
+        right: var(--pad); /* Adjust positioning for small screens */
+        top: var(--pad);
+    }
+    #Theme{
+        font-size: 1.5rem;
+    }
+    .radio-box{
+        width: 20px;
+        height: 20px;
+    }
+    .navbar { margin-top: 20px; } /* Adjust navbar spacing */
+    .nav-links {
+        line-height: 3.5rem;
+    }
+    .content {
+        left: var(--pad);
+        right: var(--pad);
+        top: var(--pad);
+        bottom: var(--pad);
+    }
+    .home, .algo, .work {
+        left: calc(var(--pad) *2);
+        width: 80%;
+    }
+    .work-lang p{
+        font-size: 40px;
+    }
+    #write-box-content {
+        font-size: 1.5rem;
+    }
+    #Background {
+        background-color: var(--c-bg-dark);
+        position: fixed;
+        z-index: 1;
+        left: var(--pad);
+        right: var(--pad);
+        top: var(--pad);
+        bottom: var(--pad);
+        pointer-events: none;
+        overflow: hidden;
+        opacity: 0.2;
+        mix-blend-mode: difference;
+    }
+}
+
+
