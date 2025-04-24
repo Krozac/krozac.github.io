@@ -1,4 +1,3 @@
-// src/hooks/useAsciiBackground.js
 import { useEffect } from 'react';
 import * as THREE from 'three';
 import { AsciiEffect } from './AsciiEffect.js'; // Assurez-vous que AsciiEffect est correctement importé
@@ -6,14 +5,14 @@ import { AsciiEffect } from './AsciiEffect.js'; // Assurez-vous que AsciiEffect 
 const useAsciiBackground = () => {
   useEffect(() => {
     let container, camera, scene, renderer, effect;
-    let sphere, ring, light1;
+    let sphere, ring;
     let start = Date.now();
 
     const mouse = { x: 0, y: 0 };
 
     const init = () => {
-      const width = window.innerWidth || 2;
-      const height = window.innerHeight || 2;
+      const width = window.innerWidth;
+      const height = window.innerHeight;
       container = document.getElementById('Background');
 
       const aspect = width / height;
@@ -32,7 +31,7 @@ const useAsciiBackground = () => {
       scene = new THREE.Scene();
 
       // Lighting setup
-      const ambientLight = new THREE.AmbientLight(0xffffff, .5);
+      const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
       scene.add(ambientLight);
 
       const directionalLight = new THREE.DirectionalLight(0xffffff, 2);
@@ -60,12 +59,13 @@ const useAsciiBackground = () => {
       renderer.setSize(width, height);
       renderer.setClearColor(0xf0f0f0);
       renderer.shadowMap.enabled = true;
-      //container.appendChild(renderer.domElement);
 
       // ASCII Effect setup
-
-      effect = new AsciiEffect(renderer, ' .:-=+*#%@', { invert: false });
-      effect.setSize(width, height);
+      effect = new AsciiEffect(renderer, ' .:-=+*#%@', { 
+        invert: false, 
+        resolution: 0.18, // Fixed resolution
+      });
+      effect.setSize(width, height); // set the initial size
       effect.domElement.style.color = 'white';
       effect.domElement.style.backgroundColor = 'black';
       container.appendChild(effect.domElement);
@@ -74,6 +74,9 @@ const useAsciiBackground = () => {
     };
 
     const onWindowResize = () => {
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+
       const aspect = window.innerWidth / window.innerHeight;
       const frustumSize = 1000;
 
@@ -84,8 +87,8 @@ const useAsciiBackground = () => {
       camera.position.x = window.innerWidth / 3;
 
       camera.updateProjectionMatrix();
-      renderer.setSize(window.innerWidth, window.innerHeight);
-      effect.setSize(window.innerWidth, window.innerHeight);
+      // Set the new size of the effect container based on the screen's aspect ratio
+      effect.setSize(width, height);
     };
 
     const onMouseMove = (event) => {

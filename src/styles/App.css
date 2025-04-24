@@ -106,7 +106,7 @@ body {
     bottom: var(--pad);
     pointer-events: none;
     overflow: hidden;
-    opacity: 0.2;
+    opacity: 0.12;
     mix-blend-mode: difference;
 }
 
@@ -172,9 +172,19 @@ body {
     word-wrap: break-word;
 }
 
-.work{
-    z-index:99;
+.work {
+    z-index: 99;
+    height: 50%;
+    overflow-y: scroll;
+    bottom: var(--pad);
+    position: relative;
+    mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+    padding-top: 50px;
+    padding-bottom: 50px;
 }
+
+
 .work-lang p{
     display: inline;
     margin-right:5px;
@@ -276,22 +286,34 @@ main { display: block; }
     :root {
         --pad: max(10px, 4vmin); /* Reduce padding for smaller screens */
     }
-    body { font-size: 3.5rem; } 
+    body { font-size: 1.5rem; } 
     #Title {
-        font-size: 1.5rem; 
-        right: var(--pad); /* Adjust positioning for small screens */
-        top: var(--pad);
+        font-size: 1rem; 
+        right: unset; /* Adjust positioning for small screens */
+        top: calc(var(--pad) *1.2);
+        left: calc(var(--pad) *2);
     }
     #Theme{
-        font-size: 1.5rem;
+        font-size: .8rem;
+        left:var(--pad);
     }
     .radio-box{
-        width: 20px;
-        height: 20px;
+        width: 10px;
+        height: 10px;
     }
     .navbar { margin-top: 20px; } /* Adjust navbar spacing */
     .nav-links {
         line-height: 3.5rem;
+
+    }
+    .nav-links > li {
+        display: inline;
+        padding-left :15px;
+        padding-right :15px;
+        border-right:1px white solid;
+    }
+    .nav-links>li:first-child {
+        padding-left :0px;
     }
     .content {
         left: var(--pad);
@@ -303,11 +325,11 @@ main { display: block; }
         left: calc(var(--pad) *2);
         width: 80%;
     }
-    .work-lang p{
-        font-size: 40px;
+    .work {
+        height: 70%;
     }
-    #write-box-content {
-        font-size: 1.5rem;
+    .work-lang p{
+        font-size: 1rem;
     }
     #Background {
         background-color: var(--c-bg-dark);

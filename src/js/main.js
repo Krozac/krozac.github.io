@@ -17,7 +17,7 @@ function init() {
   const height = window.innerHeight || 2;
   container = document.getElementById("Background");
 
-  const aspect = width / height;
+  const aspect = width / height ;
   const frustumSize = 1000;
   camera = new THREE.OrthographicCamera(
     (-frustumSize * aspect) / 2,
@@ -58,7 +58,7 @@ function init() {
     new THREE.MeshStandardMaterial({ color: 0xffffff })
   );
   sphere.castShadow = true;
-  scene.add(sphere);
+  //scene.add(sphere);
 
   const ringGeometry = new THREE.RingGeometry(800, 600, 32);
   const ringMaterial = new THREE.MeshLambertMaterial({ color: 0xffffff, side: THREE.DoubleSide });

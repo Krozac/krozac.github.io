@@ -10,6 +10,12 @@ const workData = [
         link: "./work/flux-optique.html"
     }*/
     {
+            title: "Portfolio",
+            description: "Création d'un site web Portfolio sous create-react-app",
+            link: "https://github.com/Krozac/krozac.github.io",
+            lang:["ccs","html","js","react.js","three.js"]
+    },
+    {
         title: "Modèle de site web pour groupe de musique",
         description: "Création d'un site web 'Template' sous create-react-app",
         link: "https://theoguenezan.fr/music-band-app",

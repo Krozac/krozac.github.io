@@ -76,6 +76,9 @@
 @media (max-width: 1000px) {
     .about-page {
         padding: 10px;
+        left: calc(var(--pad));
+        right:unset;
+        bottom: calc(var(--pad));
     }
 
     #write-box-title {
@@ -91,10 +94,10 @@
     }
 
     .social-icon {
-        width: 150px;
-        height: 150px;
+        width: 100px;
+        height: 100px;
     }
     .social-item a p {
-        font-size: 4rem;
+        font-size: 2rem;
     }
 }
