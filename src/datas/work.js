@@ -22,9 +22,9 @@ const workData = [
         lang:["ccs","html","js","react.js"]
     },
     {
-        title: "Simulation de volée d'oiseaux",
-        description: "Réalisation d'un simulateur de volée d'oiseaux (Boids) sous typescript",
-        link: "https://theoguenezan.fr/boids",
+        title: "Simulateur",
+        description: "Réalisation de differents simulateurs de comportements d'objets",
+        link: "https://theoguenezan.fr/simulator",
         lang:["ccs","html","js","typescript"]
     },    
     {
