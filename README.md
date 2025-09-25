@@ -1,4 +1,4 @@
-# Portfolio - Théo Guénézan
+# Portfolio
 
 Bienvenue sur le dépôt de mon portfolio personnel. Ce projet a été développé avec **React** et utilise des bibliothèques modernes comme **Three.js** pour des animations interactives.
 
