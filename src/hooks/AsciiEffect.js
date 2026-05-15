@@ -129,6 +129,7 @@ class AsciiEffect {
 			case 'low' : 	fResolution = 0.25; break;
 			case 'medium' : fResolution = 0.5; break;
 			case 'high' : 	fResolution = 1; break;
+			default : fResolution = 0.5;
 
 		}
 
@@ -143,7 +144,7 @@ class AsciiEffect {
 
 		let fLetterSpacing = 0;
 
-		if ( strResolution == 'low' ) {
+		if ( strResolution === 'low' ) {
 
 			switch ( iScale ) {
 
@@ -157,7 +158,7 @@ class AsciiEffect {
 
 		}
 
-		if ( strResolution == 'medium' ) {
+		if ( strResolution === 'medium' ) {
 
 			switch ( iScale ) {
 
@@ -171,7 +172,7 @@ class AsciiEffect {
 
 		}
 
-		if ( strResolution == 'high' ) {
+		if ( strResolution === 'high' ) {
 
 			switch ( iScale ) {
 

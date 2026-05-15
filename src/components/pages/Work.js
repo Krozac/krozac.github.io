@@ -20,7 +20,7 @@ function Work () {
                                 <p>{l}</p>
                             ))}
                         </div>
-                        <a href={work.link} className="link-custom">Voir</a>
+                        <a href={work.link}  className="link-custom" target="_blank" rel="noopener noreferrer">Voir</a>
                     </div>
                 ))}
             </div>

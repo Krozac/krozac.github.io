@@ -10,7 +10,8 @@ import Background from './components/common/Background';
 import Title from './components/common/Title';
 import ThemeSwitcher from './components/common/ThemeSwitcher';
 import './styles/App.css';
-import Sim from './components/pages/Sim';
+
+import Console from './components/common/Console';
 
 function App() {
     return (
@@ -19,13 +20,13 @@ function App() {
             <Frame />
             <Background />
             <Title />
+            <Console />
             <ThemeSwitcher />
             <div className="content-wrapper">
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/work" element={<Work />} />
                     <Route path="/about" element={<About />} />
-                    <Route path="/sim" element={<Sim />} />
                 </Routes>
             </div>
             <Footer />

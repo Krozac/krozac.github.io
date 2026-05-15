@@ -10,7 +10,11 @@ function Home() {
         <section data-page="home" className="page">
             <div className="page-content home">
                 <p>
-                    Passionné de développement. Au fil des années, j'ai acquis une solide expérience dans ce domaine,ce qui m'a permis de développer mes compétences.Je crois fermement en l'importance de l'apprentissage tout au long de la vie et cherche constamment à enrichir mes connaissances. Dans ce portfolio, je partage mes réalisations, projets, et aspirations. J'espère que vous pourrez y découvrir plus sur moi et ce que je peux apporter à votre entreprise ou organisation. 
+                        Développeur full stack passionné par les interfaces interactives, 
+                        les systèmes temps réel et la visualisation de données. 
+                        Je conçois des applications web mêlant expérience utilisateur, 
+                        architecture logicielle et rendu graphique, avec un intérêt particulier 
+                        pour les simulations, le multijoueur et les outils orientés données.
                 </p>
                 <div className="row" style={{ display: 'none' }}>
                     <a target="_blank" href="/" style={{ color: 'inherit' }}>Mon CV</a>

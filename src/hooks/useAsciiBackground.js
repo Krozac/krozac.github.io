@@ -1,8 +1,14 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 import { AsciiEffect } from './AsciiEffect.js'; // Assurez-vous que AsciiEffect est correctement importé
+import { useLocation } from 'react-router-dom';
 
 const useAsciiBackground = () => {
+  const location = useLocation();
+
+  const targetCameraPosition = useRef(new THREE.Vector3());
+  const currentCameraPosition = useRef(new THREE.Vector3());
+
   useEffect(() => {
     let container, camera, scene, renderer, effect;
     let sphere, ring;
@@ -28,6 +34,10 @@ const useAsciiBackground = () => {
 
       camera.position.z = 2000;
       camera.position.x = width / 3;
+
+      currentCameraPosition.current.copy(camera.position);
+      targetCameraPosition.current.copy(camera.position);
+
       scene = new THREE.Scene();
 
       // Lighting setup
@@ -109,6 +119,18 @@ const useAsciiBackground = () => {
       ring.rotation.y = Math.PI / 8 + Math.sin(timer * 0.0004) * 0.1;
       ring.rotation.z = timer * 0.01;
 
+      currentCameraPosition.current.lerp(
+        targetCameraPosition.current,
+        0.05
+      );
+
+      camera.position.copy(currentCameraPosition.current);
+
+      camera.lookAt(scene.position);
+
+      //translate camera to the right;
+      camera.position.x += window.innerWidth / 3;
+
       effect.render(scene, camera);
     };
 
@@ -123,6 +145,39 @@ const useAsciiBackground = () => {
       container.removeChild(effect.domElement);
     };
   }, []);
+
+  useEffect(() => {
+  switch (location.pathname) {
+    case '/':
+      targetCameraPosition.current.set(
+        window.innerWidth / 3,
+        0,
+        2000
+      );
+      break;
+    case '/work':
+      targetCameraPosition.current.set(
+          -400,
+          200,
+          1600
+      );
+      break;
+    case '/about':
+      targetCameraPosition.current.set(
+          500,
+          800,
+          1600
+      );
+      break;
+    default:
+      targetCameraPosition.current.set(
+        window.innerWidth / 3,
+        0,
+        2000
+      );
+  }
+  }, [location.pathname]);
 };
+
 
 export default useAsciiBackground;
