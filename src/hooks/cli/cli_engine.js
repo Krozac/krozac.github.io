@@ -13,8 +13,8 @@ class CLIEngine {
         console.log("CLI context updated:", this.ctx);
     }
 
-    registerCommand(name, func) {
-        this.commands[name] = func;
+    registerCommand(name, command) {
+        this.commands[name] = command;
     }
 
     async execute(line) {
@@ -22,12 +22,12 @@ class CLIEngine {
 
         const cmd = this.commands[name];
 
-        if (!cmd) return `Command not found: ${name}`;
+        if (!cmd) return `Command not found: ${name} use : help`;
 
         const { flags, positionals } = this.parseArgs(rawArgs);
 
         try {
-            return await cmd({
+            return await cmd.execute({
                 argc: rawArgs.length,
                 argv: positionals,
                 flags,
@@ -43,6 +43,10 @@ class CLIEngine {
             flags: args.filter(a => a.startsWith("-")),
             positionals: args.filter(a => !a.startsWith("-")),
         }
+    }
+
+    getCommandNames(){
+        return Object.keys(this.commands);
     }
 }
 

@@ -16,7 +16,7 @@ const workData = [
     {
         title: "Simulateur",
         description: "Réalisation de differents simulateurs de comportements d'objets",
-        link: "https://theoguenezan.fr/simulator",
+        link: "https://theoguenezan.fr/simulator-app",
         lang:["ccs","html","js","typescript"],
         path: "simulator"
     },    

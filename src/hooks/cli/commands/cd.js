@@ -4,8 +4,12 @@ export default function cd({argc, argv, flags, ctx}) {
 
     const key = argv[0]?.toLowerCase();
 
+    if (flags.includes("--help")) {
+        return "Usage: cd <route> [-n|--newtab]";
+    }
+
     if (!key) {
-        return "Usage: cd <home|work|about|github...> [--newtab|-n]";
+        return "Usage: cd <route> [--newtab|-n]";
     }
 
     const route = routes[key]; // case-insensitive matching

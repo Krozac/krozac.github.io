@@ -4,6 +4,7 @@ import { useState, useEffect, use } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { cli } from './cli_engine';
 import { registerCommands } from './registerCommands';
+import { setTheme } from '../../utils/theme';
 
 import Socials from '../../datas/Social';
 import Work from '../../datas/work';
@@ -43,7 +44,7 @@ export function useCli() {
 
     useEffect(() => {
         registerCommands();
-        cli.setContext({ navigate, routes });
+        cli.setContext({ navigate, routes, cli, setTheme});
     }, []);
 
     return cli;
